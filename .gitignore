@@ -1,0 +1,24 @@
+/target/
+**/*.rs.bk
+
+# Editor and IDE files
+/.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# Logs and temp files
+*.log
+*.tmp
+
+# By-products
+*.d
+*.rlib
+
+# Test output
+/tests/output/
+
+# Misc
+.DS_Store
+CACHEDIR.TAG
