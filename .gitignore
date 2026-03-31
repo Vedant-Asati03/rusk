@@ -22,3 +22,8 @@
 # Misc
 .DS_Store
 CACHEDIR.TAG
+
+
+# Added by cargo
+
+/target
