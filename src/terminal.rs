@@ -5,13 +5,30 @@ use termion::{
     terminal_size,
 };
 
-#[derive(Debug, Clone, Copy, Default)]
+pub const GUTTER_WIDTH: u16 = 3;
+
+#[derive(Debug)]
 pub struct Position {
     pub x: u16,
     pub y: u16,
 }
 
-#[derive(Debug, Clone, Copy, Default)]
+impl Default for Position {
+    fn default() -> Self {
+        Self {
+            x: GUTTER_WIDTH,
+            y: 0,
+        }
+    }
+}
+
+impl Position {
+    pub fn origin() -> Self {
+        Self { x: 0, y: 0 }
+    }
+}
+
+#[derive(Debug, Copy, Clone)]
 pub struct Size {
     pub width: u16,
     pub height: u16,
