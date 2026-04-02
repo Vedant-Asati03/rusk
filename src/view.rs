@@ -46,7 +46,7 @@ impl View {
             let line = if row == cursor_pos.y {
                 format!("{:>2}", row + 1)
             } else {
-                format!(" ~")
+                format!("{:>2}", "~")
             };
 
             self.terminal.print(&line)?;
