@@ -2,6 +2,7 @@ use std::io::{self, Write, stdout};
 use termion::{
     clear, cursor,
     raw::{IntoRawMode, RawTerminal},
+    screen::{AlternateScreen, IntoAlternateScreen},
     terminal_size,
 };
 
@@ -36,15 +37,16 @@ pub struct Size {
 
 pub struct Terminal {
     size: Size,
-    stdout: RawTerminal<std::io::Stdout>,
+    stdout: AlternateScreen<RawTerminal<std::io::Stdout>>,
 }
 
 impl Terminal {
     pub fn new() -> Result<Self, io::Error> {
         let (width, height) = terminal_size()?;
+
         Ok(Self {
             size: Size { width, height },
-            stdout: stdout().into_raw_mode()?,
+            stdout: stdout().into_raw_mode()?.into_alternate_screen()?,
         })
     }
 }
