@@ -40,7 +40,7 @@ pub struct Terminal {
 }
 
 impl Terminal {
-    pub fn default() -> Result<Self, io::Error> {
+    pub fn new() -> Result<Self, io::Error> {
         let (width, height) = terminal_size()?;
         Ok(Self {
             size: Size { width, height },
